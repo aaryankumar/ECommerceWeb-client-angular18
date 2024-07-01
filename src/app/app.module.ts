@@ -10,10 +10,16 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, SignupComponent],
-  imports: [BrowserModule, AppRoutingModule, DemoAngularMaterialModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    DemoAngularMaterialModule,
+    ReactiveFormsModule,
+  ],
   providers: [provideClientHydration(), provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
