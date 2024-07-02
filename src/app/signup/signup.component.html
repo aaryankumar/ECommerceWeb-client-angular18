@@ -2,29 +2,31 @@
   <mat-card>
     <mat-card-title>Sign Up</mat-card-title>
     <form [formGroup]="signupForm">
-      <mat-form-filed appearance="outline">
+      <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" placeholder="name" required />
+        <!-- The object signupForm.get('name') can be null. Use the safe navigation operator ? -->
         <mat-error
           *ngIf="
-            signupForm.get('name').invalid && signupForm.get('name').touched
+            signupForm.get('name')?.invalid && signupForm.get('name')?.touched
           "
         >
           Please enter a valid name.
         </mat-error>
-      </mat-form-filed>
-      <mat-form-filed appearance="outline">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" placeholder="email" required />
+        <!-- The object signupForm.get('email') can be null. Use the safe navigation operator ? -->
         <mat-error
           *ngIf="
-            signupForm.get('email').invalid && signupForm.get('email').touched
+            signupForm.get('email')?.invalid && signupForm.get('email')?.touched
           "
         >
           Please enter a valid email.
         </mat-error>
-      </mat-form-filed>
-      <mat-form-filed appearance="outline">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input
           matInput
@@ -38,15 +40,15 @@
         </button>
         <mat-error
           *ngIf="
-            signupForm.get('password').invalid &&
-            signupForm.get('password').touched
+            signupForm.get('password')?.invalid &&
+            signupForm.get('password')?.touched
           "
         >
           Please enter a valid password.
         </mat-error>
-      </mat-form-filed>
+      </mat-form-field>
 
-      <mat-form-filed appearance="outline">
+      <mat-form-field appearance="outline">
         <mat-label>Confirm Password</mat-label>
         <input
           matInput
@@ -60,14 +62,14 @@
         </button>
         <mat-error
           *ngIf="
-            signupForm.get('confirmPassword').invalid &&
-            signupForm.get('confirmPassword').touched
+            signupForm.get('confirmPassword')?.invalid &&
+            signupForm.get('confirmPassword')?.touched
           "
         >
           Please enter a valid confirmPassword.
         </mat-error>
-      </mat-form-filed>
-      //button will be disabled if the signupForm is invalid
+      </mat-form-field>
+      <!-- button will be disabled if the signupForm is invalid -->
       <button
         mat-raised-button
         color="#0000FF"

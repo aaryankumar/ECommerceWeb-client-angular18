@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { error } from 'console';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
+import { ActivatedRoute } from '@angular/router';
 //import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
@@ -45,19 +46,33 @@ export class SignupComponent {
       return;
     }
 
-    this.authService.register(this.signupForm.value).subscribe(
-      (response) => {
+    // this.authService.register(this.signupForm.value).subscribe(
+    //   (response) => {
+    //     //in case of success
+    //     this.snackBar.open('Sign up successfull', 'close', { duration: 5000 });
+    //     this.router.navigateByUrl('/login');
+    //   },
+
+    //   (error) => {
+    //     this.snackBar.open('Sign up failed. Please try again', 'Close', {
+    //       duration: 5000,
+    //       panelClass: 'error-snackbar',
+    //     });
+    //   }
+    // );
+
+    this.authService.register(this.signupForm.value).subscribe({
+      next: (v) => {
         //in case of success
         this.snackBar.open('Sign up successfull', 'close', { duration: 5000 });
         this.router.navigateByUrl('/login');
       },
-
-      (error) => {
+      error: (e) => {
         this.snackBar.open('Sign up failed. Please try again', 'Close', {
           duration: 5000,
           panelClass: 'error-snackbar',
         });
-      }
-    );
+      },
+    });
   }
 }

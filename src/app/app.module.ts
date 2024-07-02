@@ -7,10 +7,11 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, SignupComponent],
@@ -19,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     DemoAngularMaterialModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
+  // exports: [DemoAngularMaterialModule],
   providers: [provideClientHydration(), provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
