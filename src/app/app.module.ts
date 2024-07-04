@@ -11,7 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+//import {HttpClientModule} from '@angular/common/http'; it is deprecated
+import { provideHttpClient } from '@angular/common/http'; //use this instead of importing HttpClientModule
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, SignupComponent],
@@ -23,7 +24,13 @@ import { HttpClient } from '@angular/common/http';
     FormsModule,
   ],
   // exports: [DemoAngularMaterialModule],
-  providers: [provideClientHydration(), provideAnimationsAsync()],
+  providers: [
+    provideClientHydration(),
+    provideAnimationsAsync(),
+    provideHttpClient(),
+  ],
+  //use this instead of provideHttpClient() instead of HttpClientModule otherwise it will
+  // give error -  NullInjectorError: NullInjectorError: No provider for _HttpClient
   bootstrap: [AppComponent],
 })
 export class AppModule {}
