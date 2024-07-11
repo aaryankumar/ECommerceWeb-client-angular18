@@ -49,7 +49,7 @@ export class LoginComponent {
         // this.router.navigateByUrl('/login');
         if (UserStorageService.isAdminLoggedIn()) {
           this.router.navigateByUrl('admin/dashboard');
-        } else if (UserStorageService.isAdminLoggedIn()) {
+        } else if (UserStorageService.isCustomerLoggedIn()) {
           this.router.navigateByUrl('customer/dashboard');
         }
       },

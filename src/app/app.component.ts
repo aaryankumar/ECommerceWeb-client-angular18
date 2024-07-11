@@ -14,16 +14,15 @@ export class AppComponent {
   title = 'ECommerceWeb';
 
   constructor(
-    private router: Router
-  ) //private userStorageService: UserStorageService
-  {}
+    private router: Router //private userStorageService: UserStorageService
+  ) {}
   isCustomerLoggedIn: boolean = UserStorageService.isCustomerLoggedIn();
   isAdminLoggedIn: boolean = UserStorageService.isAdminLoggedIn();
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.router.events.subscribe((event) => {
       //whenever routes get changed we need to check and update these variables.
-      this.isAdminLoggedIn = UserStorageService.isCustomerLoggedIn();
+      this.isCustomerLoggedIn = UserStorageService.isCustomerLoggedIn();
       this.isAdminLoggedIn = UserStorageService.isAdminLoggedIn();
     });
   }
