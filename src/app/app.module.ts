@@ -29,7 +29,7 @@ import { provideHttpClient } from '@angular/common/http'; //use this instead of 
     provideAnimationsAsync(),
     provideHttpClient(),
   ],
-  //use this instead of provideHttpClient() instead of HttpClientModule otherwise it will
+  //use this provideHttpClient() instead of HttpClientModule otherwise it will
   // give error -  NullInjectorError: NullInjectorError: No provider for _HttpClient
   bootstrap: [AppComponent],
 })
