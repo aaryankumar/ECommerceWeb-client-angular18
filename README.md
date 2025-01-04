@@ -27,7 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 
-
+```bash
 Directory structure:
 └── aaryankumar-ECommerceWeb-client-angular18/
     ├── README.md
@@ -96,4 +96,5 @@ Directory structure:
                 ├── signup.component.scss
                 ├── signup.component.spec.ts
                 └── signup.component.ts
+```
 
